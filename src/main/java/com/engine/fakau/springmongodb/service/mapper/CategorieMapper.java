@@ -17,8 +17,8 @@ public class CategorieMapper implements IMapper<CategorieDTO, Categorie> {
     @Override
     public CategorieDTO toDto(Categorie categorie) {
         CategorieDTO categorieDTO = new CategorieDTO();
-        categorieDTO.setId(categorieDTO.getId());
-        categorieDTO.setNom(categorieDTO.getNom());
+        categorieDTO.setId(categorie.getId());
+        categorieDTO.setNom(categorie.getNom());
         return categorieDTO;
     }
 }

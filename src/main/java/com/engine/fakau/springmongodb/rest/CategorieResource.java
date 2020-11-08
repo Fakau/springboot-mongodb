@@ -19,16 +19,10 @@ public class CategorieResource {
     }
     @PostMapping("")
     public CategorieDTO save(@Valid @RequestBody CategorieDTO categorieDTO){
-        if(categorieDTO.getId() != null){
-            throw new RuntimeException("Cannot save categorie with id <> null");
-        }
         return categorieService.save(categorieDTO);
     }
     @PutMapping("")
     public CategorieDTO update(@Valid @RequestBody CategorieDTO categorieDTO){
-        if(categorieDTO.getId() == null){
-            throw new RuntimeException("Cannot update categorie with id == null");
-        }
         return categorieService.save(categorieDTO);
     }
     @GetMapping("/{id}")
