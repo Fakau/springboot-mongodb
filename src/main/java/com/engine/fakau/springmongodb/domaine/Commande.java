@@ -11,7 +11,6 @@ import java.util.List;
 public class Commande {
     @Id
     private Long id;
-    private Integer quantite;
     private BigDecimal prix;
     private Integer quantiteTotalProduit;
     private List<LigneCommande> ligneCommandes = new ArrayList<LigneCommande>();
@@ -24,13 +23,6 @@ public class Commande {
         this.id = id;
     }
 
-    public Integer getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(Integer quantite) {
-        this.quantite = quantite;
-    }
 
     public BigDecimal getPrix() {
         return prix;
@@ -60,7 +52,6 @@ public class Commande {
     public String toString() {
         return "Commande{" +
                 "id=" + id +
-                ", quantite=" + quantite +
                 ", prix=" + prix +
                 ", quantiteTotalProduit=" + quantiteTotalProduit +
                 ", ligneCommandes=" + ligneCommandes +

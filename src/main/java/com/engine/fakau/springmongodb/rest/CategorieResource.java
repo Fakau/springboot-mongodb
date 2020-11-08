@@ -2,6 +2,7 @@ package com.engine.fakau.springmongodb.rest;
 
 import com.engine.fakau.springmongodb.service.dto.CategorieDTO;
 import com.engine.fakau.springmongodb.service.serviceImpl.CategorieServiceImpl;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,27 +19,27 @@ public class CategorieResource {
         this.categorieService = categorieService;
     }
     @PostMapping("")
-    public CategorieDTO save(@Valid @RequestBody CategorieDTO categorieDTO){
-        return categorieService.save(categorieDTO);
+    public ResponseEntity<CategorieDTO>save(@Valid @RequestBody CategorieDTO categorieDTO){
+        return ResponseEntity.ok(categorieService.save(categorieDTO));
     }
     @PutMapping("")
-    public CategorieDTO update(@Valid @RequestBody CategorieDTO categorieDTO){
-        return categorieService.save(categorieDTO);
+    public ResponseEntity<CategorieDTO> update(@Valid @RequestBody CategorieDTO categorieDTO){
+        return ResponseEntity.ok(categorieService.save(categorieDTO));
     }
     @GetMapping("/{id}")
-    public Optional<CategorieDTO> findById(@PathVariable Long id){
-        return categorieService.findOneById(id);
+    public ResponseEntity<Optional<CategorieDTO>> findById(@PathVariable Long id){
+        return ResponseEntity.ok(categorieService.findOneById(id));
     }
     @GetMapping("/get-by-nom")
-    public Optional<CategorieDTO> getByNom(@RequestParam String nom){
+    public ResponseEntity<Optional<CategorieDTO>> getByNom(@RequestParam String nom){
         if(StringUtils.isEmpty(nom)){
             throw new RuntimeException("nom cannot be null");
         }
-        return categorieService.findOneByNom(nom);
+        return ResponseEntity.ok(categorieService.findOneByNom(nom));
     }
     @GetMapping("")
-    public List<CategorieDTO> getAll(){
-        return categorieService.findAll();
+    public ResponseEntity<List<CategorieDTO>> getAll(){
+        return ResponseEntity.ok(categorieService.findAll());
     }
 
 }

@@ -1,10 +1,12 @@
 package com.engine.fakau.springmongodb.service.dto;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class CategorieDTO implements Serializable {
-
+    @NotNull
     private Long id;
+    @NotNull
     private String nom;
 
     public Long getId() {

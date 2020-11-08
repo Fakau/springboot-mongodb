@@ -2,6 +2,7 @@ package com.engine.fakau.springmongodb.rest;
 
 import com.engine.fakau.springmongodb.service.dto.ProduitDTO;
 import com.engine.fakau.springmongodb.service.serviceImpl.ProduitServiceImpl;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,33 +20,27 @@ public class ProduitResource {
     }
 
     @PostMapping("")
-    public ProduitDTO save(@Valid @RequestBody ProduitDTO produitDTO){
-        if(produitDTO.getId() != null){
-            throw new RuntimeException("Cannot save produitDTO with id <> null");
-        }
-        return produitService.save(produitDTO);
+    public ResponseEntity<ProduitDTO> save(@Valid @RequestBody ProduitDTO produitDTO){
+        return ResponseEntity.ok(produitService.save(produitDTO));
     }
     @PutMapping("")
-    public ProduitDTO update(@Valid @RequestBody ProduitDTO produitDTO){
-        if(produitDTO.getId() == null){
-            throw new RuntimeException("Cannot update categorie with id == null");
-        }
-        return produitService.save(produitDTO);
+    public ResponseEntity<ProduitDTO> update(@Valid @RequestBody ProduitDTO produitDTO){
+        return ResponseEntity.ok(produitService.save(produitDTO));
     }
     @GetMapping("/{id}")
-    public Optional<ProduitDTO> findById(@PathVariable Long id){
-        return produitService.findOneById(id);
+    public ResponseEntity<Optional<ProduitDTO>> findById(@PathVariable Long id){
+        return ResponseEntity.ok(produitService.findOneById(id));
     }
     @GetMapping("/search")
-    public List<ProduitDTO> search(@RequestParam String keyWord){
+    public ResponseEntity<List<ProduitDTO>> search(@RequestParam String keyWord){
         if(StringUtils.isEmpty(keyWord)){
             throw new RuntimeException("keyWord cannot be null");
         }
-        return produitService.search(keyWord);
+        return ResponseEntity.ok(produitService.search(keyWord));
     }
     @GetMapping("")
-    public List<ProduitDTO> getAll(){
-        return produitService.findAll();
+    public ResponseEntity<List<ProduitDTO>> getAll(){
+        return ResponseEntity.ok(produitService.findAll());
     }
 
 }

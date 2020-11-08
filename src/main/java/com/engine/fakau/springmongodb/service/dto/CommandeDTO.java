@@ -1,15 +1,19 @@
 package com.engine.fakau.springmongodb.service.dto;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommandeDTO implements Serializable {
+    @NotNull
     private Long id;
-    private Integer quantite;
+    @NotNull
     private BigDecimal prix;
+    @NotNull
     private Integer quantiteTotalProduit;
+    @NotNull
     private List<LigneCommandeDTO> ligneCommandes = new ArrayList<LigneCommandeDTO>();
 
     public Long getId() {
@@ -18,14 +22,6 @@ public class CommandeDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(Integer quantite) {
-        this.quantite = quantite;
     }
 
     public BigDecimal getPrix() {
@@ -56,7 +52,6 @@ public class CommandeDTO implements Serializable {
     public String toString() {
         return "Commande{" +
                 "id=" + id +
-                ", quantite=" + quantite +
                 ", prix=" + prix +
                 ", quantiteTotalProduit=" + quantiteTotalProduit +
                 ", ligneCommandes=" + ligneCommandes +

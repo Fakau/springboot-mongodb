@@ -17,26 +17,18 @@ public class LigneCommandeMapper implements IMapper<LigneCommandeDTO, LigneComma
     @Override
     public LigneCommande toEntity(LigneCommandeDTO ligneCommandeDTO) {
         LigneCommande ligneCommande = new LigneCommande();
-        ligneCommande.setId(ligneCommandeDTO.getId());
         ligneCommande.setPrix(ligneCommandeDTO.getPrix());
-        ligneCommande.setProduits(
-                ligneCommandeDTO.getProduits().stream().map(produitMapper::toEntity).collect(Collectors.toList())
-        );
+        ligneCommande.setProduit(produitMapper.toEntity(ligneCommandeDTO.getProduit()));
         ligneCommande.setQuantite(ligneCommandeDTO.getQuantite());
-        ligneCommande.setCommande(commandeMapper.toEntity(ligneCommandeDTO.getCommande()));
         return ligneCommande;
     }
 
     @Override
     public LigneCommandeDTO toDto(LigneCommande ligneCommande) {
         LigneCommandeDTO ligneCommandeDTO = new LigneCommandeDTO();
-        ligneCommandeDTO.setId(ligneCommande.getId());
         ligneCommandeDTO.setPrix(ligneCommande.getPrix());
-        ligneCommandeDTO.setProduits(
-                ligneCommande.getProduits().stream().map(produitMapper::toDto).collect(Collectors.toList())
-        );
+        ligneCommandeDTO.setProduit(produitMapper.toDto(ligneCommande.getProduit()));
         ligneCommandeDTO.setQuantite(ligneCommande.getQuantite());
-        ligneCommandeDTO.setCommande(commandeMapper.toDto(ligneCommande.getCommande()));
         return ligneCommandeDTO;
     }
 }

@@ -20,7 +20,6 @@ public class CommandeMapper implements IMapper<CommandeDTO, Commande>{
         Commande commande=new Commande();
         commande.setId(commandeDTO.getId());
         commande.setPrix(commandeDTO.getPrix());
-        commande.setQuantite(commandeDTO.getQuantite());
         commande.setQuantiteTotalProduit(commandeDTO.getQuantiteTotalProduit());
         commande.setLigneCommandes(
                 commandeDTO.getLigneCommandes()
@@ -36,7 +35,6 @@ public class CommandeMapper implements IMapper<CommandeDTO, Commande>{
         CommandeDTO commandeDTO=new CommandeDTO();
         commandeDTO.setId(commande.getId());
         commandeDTO.setPrix(commande.getPrix());
-        commandeDTO.setQuantite(commande.getQuantite());
         commandeDTO.setQuantiteTotalProduit(commande.getQuantiteTotalProduit());
         commandeDTO.setLigneCommandes(
                 commande.getLigneCommandes()

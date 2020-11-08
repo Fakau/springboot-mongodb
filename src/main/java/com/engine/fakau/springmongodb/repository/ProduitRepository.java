@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface ProduitRepository extends MongoRepository<Produit, Long> {
-    @Query("{'nom': {$regex: ?0}, 'description': {$regex: ?0}, 'categorie.nom': {$regex: ?0}}")
+    @Query("{'nom': {$regex: ?0}}")
     List<Produit> search(String keyWord);
     Optional<Produit> findOneById(Long id);
 }
