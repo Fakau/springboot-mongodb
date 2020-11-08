@@ -1,6 +1,7 @@
 package com.engine.fakau.springmongodb.domaine;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
@@ -11,6 +12,8 @@ public class Produit {
     private Long id;
     private String nom;
     private String description;
+    @DBRef
+    private Categorie categorie;
     private BigDecimal prix;
 
     public Long getId() {
@@ -45,12 +48,21 @@ public class Produit {
         this.prix = prix;
     }
 
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public String toString() {
         return "Produit{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
+                ", categorie=" + categorie +
                 ", prix=" + prix +
                 '}';
     }

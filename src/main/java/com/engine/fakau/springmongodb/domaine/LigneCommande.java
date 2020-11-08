@@ -1,27 +1,11 @@
 package com.engine.fakau.springmongodb.domaine;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
-@Document(collation = "ligne_commande")
 public class LigneCommande {
-    @Id
-    private Long id;
     private Integer quantite;
     private BigDecimal prix;
-    private List<Produit> produits = new ArrayList<Produit>();
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Produit produit;
 
     public Integer getQuantite() {
         return quantite;
@@ -39,21 +23,20 @@ public class LigneCommande {
         this.prix = prix;
     }
 
-    public List<Produit> getProduits() {
-        return produits;
+    public Produit getProduit() {
+        return produit;
     }
 
-    public void setProduits(List<Produit> produits) {
-        this.produits = produits;
+    public void setProduit(Produit produit) {
+        this.produit = produit;
     }
 
     @Override
     public String toString() {
         return "LigneCommande{" +
-                "id=" + id +
                 ", quantite=" + quantite +
                 ", prix=" + prix +
-                ", produits=" + produits +
+                ", produits=" + produit +
                 '}';
     }
 }

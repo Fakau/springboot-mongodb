@@ -1,12 +1,18 @@
 package com.engine.fakau.springmongodb.service.dto;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class ProduitDTO implements Serializable {
     private Long id;
+    @NotNull
     private String nom;
+    @NotNull
     private String description;
+    @NotNull
+    private CategorieDTO categorie;
+    @NotNull
     private BigDecimal prix;
 
     public Long getId() {
@@ -41,12 +47,21 @@ public class ProduitDTO implements Serializable {
         this.prix = prix;
     }
 
+    public CategorieDTO getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(CategorieDTO categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public String toString() {
-        return "Produit{" +
+        return "ProduitDTO{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
+                ", categorie=" + categorie +
                 ", prix=" + prix +
                 '}';
     }
