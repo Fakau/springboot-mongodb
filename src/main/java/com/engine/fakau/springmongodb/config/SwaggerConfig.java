@@ -29,7 +29,7 @@ public class SwaggerConfig {
 
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("spring jwt security- Rest API")
+        return new ApiInfoBuilder().title("spring mongoDB- Rest API")
                 .description("share my spring boot experience")
                 .contact(new Contact("Kafka M. Laurent", "http://portfolio.laurentkafka123.now.sh", "laurentkafka123@gmail.com"))
                 .build();
