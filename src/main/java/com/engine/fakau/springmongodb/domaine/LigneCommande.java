@@ -13,6 +13,7 @@ public class LigneCommande {
     private Long id;
     private Integer quantite;
     private BigDecimal prix;
+    private Commande commande;
     private List<Produit> produits = new ArrayList<Produit>();
 
     public Long getId() {
@@ -47,12 +48,21 @@ public class LigneCommande {
         this.produits = produits;
     }
 
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
     @Override
     public String toString() {
         return "LigneCommande{" +
                 "id=" + id +
                 ", quantite=" + quantite +
                 ", prix=" + prix +
+                ", commande=" + commande +
                 ", produits=" + produits +
                 '}';
     }

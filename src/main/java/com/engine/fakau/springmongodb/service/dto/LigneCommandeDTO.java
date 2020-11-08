@@ -9,6 +9,7 @@ public class LigneCommandeDTO implements Serializable {
     private Long id;
     private Integer quantite;
     private BigDecimal prix;
+    private CommandeDTO commande;
     private List<ProduitDTO> produits = new ArrayList<ProduitDTO>();
 
     public Long getId() {
@@ -43,12 +44,21 @@ public class LigneCommandeDTO implements Serializable {
         this.produits = produits;
     }
 
+    public CommandeDTO getCommande() {
+        return commande;
+    }
+
+    public void setCommande(CommandeDTO commande) {
+        this.commande = commande;
+    }
+
     @Override
     public String toString() {
-        return "LigneCommande{" +
+        return "LigneCommandeDTO{" +
                 "id=" + id +
                 ", quantite=" + quantite +
                 ", prix=" + prix +
+                ", commande=" + commande +
                 ", produits=" + produits +
                 '}';
     }
