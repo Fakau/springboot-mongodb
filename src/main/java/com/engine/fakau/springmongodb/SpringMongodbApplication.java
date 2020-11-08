@@ -13,21 +13,9 @@ import java.math.BigDecimal;
 
 @SpringBootApplication
 public class SpringMongodbApplication {
-	@Autowired
-	private ProduitRepository produitRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMongodbApplication.class, args);
-	}
-
-	@Bean
-	public void init() {
-		Produit p = new Produit();
-		p.setId(1L);
-		p.setNom("Technologie 2");
-		p.setDescription("desc");
-		p.setPrix(new BigDecimal(56.00));
-		System.out.println(produitRepository.save(p));
 	}
 
 }
