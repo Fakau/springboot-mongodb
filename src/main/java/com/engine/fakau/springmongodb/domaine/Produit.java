@@ -11,6 +11,7 @@ public class Produit {
     private Long id;
     private String nom;
     private String description;
+    private Categorie categorie;
     private BigDecimal prix;
 
     public Long getId() {
@@ -45,12 +46,21 @@ public class Produit {
         this.prix = prix;
     }
 
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public String toString() {
         return "Produit{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
+                ", categorie=" + categorie +
                 ", prix=" + prix +
                 '}';
     }

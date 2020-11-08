@@ -8,11 +8,17 @@ import org.springframework.stereotype.Service;
 public class CategorieMapper implements IMapper<CategorieDTO, Categorie> {
     @Override
     public Categorie toEntity(CategorieDTO categorieDTO) {
-        return null;
+        Categorie categorie = new Categorie();
+        categorie.setId(categorieDTO.getId());
+        categorie.setNom(categorieDTO.getNom());
+        return categorie;
     }
 
     @Override
     public CategorieDTO toDto(Categorie categorie) {
-        return null;
+        CategorieDTO categorieDTO = new CategorieDTO();
+        categorieDTO.setId(categorieDTO.getId());
+        categorieDTO.setNom(categorieDTO.getNom());
+        return categorieDTO;
     }
 }
